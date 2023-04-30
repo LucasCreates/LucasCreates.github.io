@@ -110,12 +110,13 @@ body{
 }
 .score-display{
 	flex: 1;
-	color: white;
+	color: #3f02cc;
 	text-align: center;
 	z-index: 2;
+	margin: 20px;
 	font-family: papyrus, sans-serif;
 
-	text-shadow: #292928 1px 1px 0;
+	text-shadow: #7968a1 1px 1px 0;
 }
 
 .play-round{

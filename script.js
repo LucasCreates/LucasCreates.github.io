@@ -5,18 +5,16 @@ const playerChoiceBtns = document.querySelectorAll(".player-btn")
 const playerHandImg = document.querySelector(".player-hand-img");
 const computerHandImg = document.querySelector(".computer-hand-img");
 const playRound = document.querySelector(".play-round");
+const playerScoreDisplay = document.getElementById("player-score");
+const computerScoreDisplay = document.getElementById("computer-score");
 let playerChoice = "";
 let computerChoice = "";
-
+let playerScore = 0;
+let computerScore = 0
 playerChoiceBtns.forEach((choice) => choice.addEventListener("click", function(e){
 	console.log(e.target.getAttribute("data-id"));
 	playerChoice = e.target.getAttribute("data-id");
-	function setChoice(){
-	e.target.setAttribute("style", "background: #faed78; box-shadow: 1px 1px 15px 7px #FFF512;")
-	playRound.style.display="flex"
-}
-
-	setChoice();
+	play()
 }));
 
 
@@ -24,9 +22,15 @@ playerChoiceBtns.forEach((choice) => choice.addEventListener("click", function(e
 
 
 function play(){
+
+	computerChoice = getComputerChoice(); 
+	console.log("Computer picks " + computerChoice)
 	playerHandImg.src="images/rock.png";
 	playerHandImg.style.transition = "0.5s"
 	playerHandImg.style.transform ="translateY(-200px)"
+	computerHandImg.src="images/rock2.png";
+	computerHandImg.style.transition = "0.5s"
+	computerHandImg.style.transform ="translateY(-200px)"
 		setTimeout(() =>{
 	    	const handAnimation = [
 				
@@ -40,23 +44,103 @@ function play(){
 				iterations:3,
 			}
 			playerHandImg.animate(handAnimation, timing);
-			if(playerChoice === "paper"){
+			computerHandImg.animate(handAnimation, timing);
+			if(playerChoice == computerChoice){
 				setTimeout(() =>{
-	    			playerHandImg.src="images/paper.png";
+	    				computerHandImg.src =`images/${computerChoice}2.png`;
 	    		}, "1600");
+				
+				console.log("You drew")
 			}
-			else if(playerChoice === "scissor"){
-				setTimeout(() =>{
-	    			playerHandImg.src="images/scissor.png";
-	    		}, "1600");
-			}
-			else if (playerChoice === "rock"){
+			if(playerChoice === "rock"){
 				setTimeout(() =>{
 	    			playerHandImg.src="images/rock.png";
 	    		}, "1600");
+	    		if(playerChoice === "rock" && computerChoice === "paper"){
+	    			setTimeout(() =>{
+	    				computerHandImg.src ="images/paper2.png";
+	    				console.log("you lose")
+	    				computerScore++
+	    				computerScoreDisplay.textContent = computerScore
+	    			}, "1600");
+	    			if(playerChoice === "scissor"){
+	    				console.log("you win")
+	    				playerScore++
+	    				playerScoreDisplay.textContent = playerScore
+	    			}		
+	    		}
+	    		else if(playerChoice === "rock" && computerChoice === "scissor"){
+	    			setTimeout(() =>{
+	    				computerHandImg.src ="images/scissor2.png";
+	    				console.log("you win")
+	    				playerScore++
+	    				playerScoreDisplay.textContent = playerScore
+	    			}, "1600");
+	    		}	
 			}
+			else if(playerChoice === "paper"){
+				setTimeout(() =>{
+	    			playerHandImg.src="images/paper.png";
+	    		}, "1600");
+	    		if(playerChoice === "paper" && computerChoice === "scissor"){
+	    			setTimeout(() =>{
+	    				computerHandImg.src ="images/scissor2.png";
+	    				console.log("you lose")
+	    				computerScore++
+	    				computerScoreDisplay.textContent = computerScore
+	    			}, "1600");	
+	    			if(playerChoice === "rock"){
+	    				console.log("you win")
+	    				playerScore++
+	    				playerScoreDisplay.textContent = playerScore
+	    			}	
+	    		}
+	    		else if(playerChoice === "paper" && computerChoice === "rock"){
+	    			setTimeout(() =>{
+	    				computerHandImg.src ="images/rock2.png";
+	    				console.log("you win")
+	    				playerScore++
+	    				playerScoreDisplay.textContent = playerScore
+	    			}, "1600");	
+				}
+			};
+
+
+
+			if(playerChoice === "scissor"){
+
+				setTimeout(() =>{
+	    			playerHandImg.src="images/scissor.png";
+	    		}, "1600");
+
+	    		if(playerChoice === "scissor" && computerChoice === "rock"){
+	    			setTimeout(() =>{
+	    				computerHandImg.src ="images/rock2.png";
+	    				console.log("you lose")
+	    				computerScore++
+	    				computerScoreDisplay.textContent = computerScore
+	    			}, "1600");		
+	    			if(playerChoice === "paper"){
+	    				console.log("you win")
+	    				playerScore++
+	    				playerScoreDisplay.textContent = playerScore
+	    			}
+	    		}
+	    		else if(playerChoice === "scissor" && computerChoice === "paper"){
+	    			setTimeout(() =>{
+	    				computerHandImg.src ="images/paper2.png";
+	    				console.log("you win")
+	    				playerScore++
+	    				playerScoreDisplay.textContent = playerScore
+	    			}, "1600");	
+	    		}
+	    	}
+
+			
 			playerHandImg.style.transition = "0.5s"
-				playerHandImg.style.transform ="translateY(0px)"
+			playerHandImg.style.transform ="translateY(0px)"
+			computerHandImg.style.transition = "0.5s"
+			computerHandImg.style.transform ="translateY(0px)"
 		
     }, "1600");
 	
@@ -104,11 +188,6 @@ function getComputerChoice(){
 	const choice = ["rock", "paper", "scissor"]
 	return choice[Math.floor(Math.random() * choice.length)]
 }
-
-function starAnimation(){
-
-}
-console.log(getComputerChoice())
 
 function start(){
 	playerChoice = "";
