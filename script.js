@@ -1,6 +1,68 @@
 
 const button = document.getElementById("start-btn");
 const playerButtons = document.querySelector(".container")
+const playerChoiceBtns = document.querySelectorAll(".player-btn")
+const playerHandImg = document.querySelector(".player-hand-img");
+const computerHandImg = document.querySelector(".computer-hand-img");
+const playRound = document.querySelector(".play-round");
+let playerChoice = "";
+let computerChoice = "";
+
+playerChoiceBtns.forEach((choice) => choice.addEventListener("click", function(e){
+	console.log(e.target.getAttribute("data-id"));
+	playerChoice = e.target.getAttribute("data-id");
+	function setChoice(){
+	e.target.setAttribute("style", "background: #faed78; box-shadow: 1px 1px 15px 7px #FFF512;")
+	playRound.style.display="flex"
+}
+
+	setChoice();
+}));
+
+
+
+
+
+function play(){
+	playerHandImg.src="images/rock.png";
+	playerHandImg.style.transition = "0.5s"
+	playerHandImg.style.transform ="translateY(-200px)"
+		setTimeout(() =>{
+	    	const handAnimation = [
+				
+				{transform: `translateX(10px`},
+				{transform: `translateY(50px`},
+				{rotate: `15deg`},
+				{rotate: `0deg`},
+			];
+			const timing = {
+				duration: 500,
+				iterations:3,
+			}
+			playerHandImg.animate(handAnimation, timing);
+			if(playerChoice === "paper"){
+				setTimeout(() =>{
+	    			playerHandImg.src="images/paper.png";
+	    		}, "1600");
+			}
+			else if(playerChoice === "scissor"){
+				setTimeout(() =>{
+	    			playerHandImg.src="images/scissor.png";
+	    		}, "1600");
+			}
+			else if (playerChoice === "rock"){
+				setTimeout(() =>{
+	    			playerHandImg.src="images/rock.png";
+	    		}, "1600");
+			}
+			playerHandImg.style.transition = "0.5s"
+				playerHandImg.style.transform ="translateY(0px)"
+		
+    }, "1600");
+	
+		
+	console.log("You played " + playerChoice)
+}
 
 button.addEventListener('click', function(){
 	console.log("clicked")
@@ -49,6 +111,7 @@ function starAnimation(){
 console.log(getComputerChoice())
 
 function start(){
+	playerChoice = "";
 	const buttonAnimation = [
 			{padding: "30px 50px 30px 50px"},
 			{opacity: "0.5"},
@@ -62,6 +125,9 @@ function start(){
 	}
 	button.animate(buttonAnimation, timing);
 	setTimeout(() =>{
+		playerHandImg.style.display = "flex";
+		computerHandImg.style.display = "flex";
+    
     	button.style.display = "none"
     	playerButtons.style.display ="flex"
     }, "900");

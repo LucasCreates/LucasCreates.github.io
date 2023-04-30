@@ -48,6 +48,15 @@ body{
 
 	text-shadow: #292928 1px 1px 0;
 }
+.active{
+	width: 200px;
+	height: 70px;
+	margin: 10px;
+	font-size: 24px;
+	border-radius: 15px;
+	background: blue;
+	
+}
 
 .star{
 	color: yellow;
@@ -55,10 +64,70 @@ body{
 	position: absolute;
 	top: 40%;
 }
-
-.hand-img{
+.hands{
+	display: none;
+}
+.player-hand-img{
 	height: 300px;
 	width: 350px;
 	position: absolute;
-	top: 10%;
+	top: 25%;
+	left: 20%;
+	display: none
+}
+.computer-hand-img{
+	height: 300px;
+	width: 350px;
+	position: absolute;
+	top: 25%;
+	right: 20%;
+	display: none
+}
+
+.header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	width: 400px;
+	background: #ffe640;
+	border: 5px solid #3e42fa;
+	border-radius: 0 20% 0 20%;
+	
+	box-shadow: 5px 5px 0px 0px #6568fc, 10px 10px 0px 0px #8b8cf7, 15px 15px 0px 0px #b7b8f7, 20px 20px 0px 0px #cbccf5, 25px 25px 0px 0px #e3e4fc, 5px 5px 15px 5px rgba(0,0,0,0);
+
+}
+.background-effect{
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+	width: 400px;
+	background: #ffe640;
+	border: 2px solid #000;
+	border-radius: 0 20% 0 20%;
+	z-index: 1;
+}
+.score-display{
+	flex: 1;
+	color: white;
+	text-align: center;
+	z-index: 2;
+	font-family: papyrus, sans-serif;
+
+	text-shadow: #292928 1px 1px 0;
+}
+
+.play-round{
+	display: none;
+	position: absolute;
+	top: 70%;
+	font-size: 24px;
+	border-radius: 15px;
+	background: #ffe640;
+	font-weight: bold;
+
+	font-family: papyrus, sans-serif;
+
+	text-shadow: #292928 1px 1px 0;
 }
