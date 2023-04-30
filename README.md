@@ -1,2 +1,2 @@
 # Rock-Paper-Scissor
-lucascreates.github.io
+https://LucasCreates.github.io
