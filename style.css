@@ -1,3 +1,64 @@
 body{
-	background: black;
+	
+	display: flex;
+	background: #3632a8 url("images/starback.png");
+    background-size: cover;                 
+    background-repeat: no-repeat;
+    min-height: 98.1vh; 
+	justify-content: center;
+	align-content: center;
+}
+
+#start-btn{
+	position: absolute;
+	top: 40%;
+	margin:0 auto;
+	color: #fff;
+	padding: 30px 50px 30px 50px;
+	font-size:  40px;
+	border-radius: 15px;
+	background: #ffe640;
+	font-weight: bold;
+	font-family: papyrus, sans-serif;
+
+	text-shadow: #292928 1px 1px 0;
+}
+#start-btn:hover{
+	box-shadow: 0px 0px 32px -6px rgba(246,255,115,1);
+}
+#start-btn:active{
+	box-shadow: 0px 0px 32px 9px rgba(246,255,115,1);
+}
+
+.container{
+	position: absolute;
+	bottom: 15%;
+	display: none;
+}
+.container button{
+	width: 200px;
+	height: 70px;
+	margin: 10px;
+	font-size: 24px;
+	border-radius: 15px;
+	background: #ffe640;
+	font-weight: bold;
+
+	font-family: papyrus, sans-serif;
+
+	text-shadow: #292928 1px 1px 0;
+}
+
+.star{
+	color: yellow;
+	
+	position: absolute;
+	top: 40%;
+}
+
+.hand-img{
+	height: 300px;
+	width: 350px;
+	position: absolute;
+	top: 10%;
 }
