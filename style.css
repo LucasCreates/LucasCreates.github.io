@@ -9,81 +9,12 @@ body{
 	align-content: center;
 }
 
-#start-btn{
-	position: absolute;
-	top: 40%;
-	margin:0 auto;
-	color: #fff;
-	padding: 30px 50px 30px 50px;
-	font-size:  40px;
-	border-radius: 15px;
-	background: #ffe640;
-	font-weight: bold;
-	font-family: papyrus, sans-serif;
+/*
+##########################################################################################
 
-	text-shadow: #292928 1px 1px 0;
-}
-#start-btn:hover{
-	box-shadow: 0px 0px 32px -6px rgba(246,255,115,1);
-}
-#start-btn:active{
-	box-shadow: 0px 0px 32px 9px rgba(246,255,115,1);
-}
+CSS for the Score board
 
-.container{
-	position: absolute;
-	bottom: 15%;
-	display: none;
-}
-.container button{
-	width: 200px;
-	height: 70px;
-	margin: 10px;
-	font-size: 24px;
-	border-radius: 15px;
-	background: #ffe640;
-	font-weight: bold;
-
-	font-family: papyrus, sans-serif;
-
-	text-shadow: #292928 1px 1px 0;
-}
-.active{
-	width: 200px;
-	height: 70px;
-	margin: 10px;
-	font-size: 24px;
-	border-radius: 15px;
-	background: blue;
-	
-}
-
-.star{
-	color: yellow;
-	
-	position: absolute;
-	top: 40%;
-}
-.hands{
-	display: none;
-}
-.player-hand-img{
-	height: 300px;
-	width: 350px;
-	position: absolute;
-	top: 25%;
-	left: 20%;
-	display: none
-}
-.computer-hand-img{
-	height: 300px;
-	width: 350px;
-	position: absolute;
-	top: 25%;
-	right: 20%;
-	display: none
-}
-
+*/
 .header{
 	display: flex;
 	align-items: center;
@@ -119,10 +50,50 @@ body{
 	text-shadow: #7968a1 1px 1px 0;
 }
 
-.play-round{
-	display: none;
+
+/*
+##################################################################################################*/
+
+/*
+Play button
+*/
+
+#start-btn{
 	position: absolute;
-	top: 70%;
+	top: 40%;
+	margin:0 auto;
+	color: #fff;
+	padding: 30px 50px 30px 50px;
+	font-size:  40px;
+	border-radius: 15px;
+	background: #ffe640;
+	font-weight: bold;
+	font-family: papyrus, sans-serif;
+
+	text-shadow: #292928 1px 1px 0;
+}
+#start-btn:hover{
+	box-shadow: 0px 0px 32px -6px rgba(246,255,115,1);
+}
+#start-btn:active{
+	box-shadow: 0px 0px 32px 9px rgba(246,255,115,1);
+}
+
+/*###############################################################################################*/
+
+/*
+Player choice buttons
+
+*/
+.container{
+	position: absolute;
+	bottom: 15%;
+	display: none;
+}
+.container button{
+	width: 200px;
+	height: 70px;
+	margin: 10px;
 	font-size: 24px;
 	border-radius: 15px;
 	background: #ffe640;
@@ -131,4 +102,112 @@ body{
 	font-family: papyrus, sans-serif;
 
 	text-shadow: #292928 1px 1px 0;
+}
+.active{
+	width: 200px;
+	height: 70px;
+	margin: 10px;
+	font-size: 24px;
+	border-radius: 15px;
+	background: blue;
+	
+}
+@media(min-width: 800px) and (max-width: 1900px){
+	.container button{
+		width: 150px;
+		height: 50px;
+		margin: 10px;
+		font-size: 24px;
+		border-radius: 15px;
+		background: #ffe640;
+		font-weight: bold;
+
+		font-family: papyrus, sans-serif;
+
+		text-shadow: #292928 1px 1px 0;
+	}
+}
+@media(min-width: 400px) and (max-width: 799px){
+	.container button{
+		width: 90px;
+		height: 40px;
+		margin: 10px;
+		font-size: 20px;
+		border-radius: 10px;
+		background: #ffe640;
+		font-weight: bold;
+
+		font-family: papyrus, sans-serif;
+
+		text-shadow: #292928 1px 1px 0;
+	}
+}
+
+
+/*#############################################################################*/
+
+
+/*
+Star and hand images
+*/
+.star{
+	color: yellow;
+	
+	position: absolute;
+	top: 35%;
+}
+.hands{
+	display: none;
+}
+.player-hand-img{
+	height: 300px;
+	width: 350px;
+	position: absolute;
+	top: 25%;
+	left: 20%;
+	display: none
+}
+.computer-hand-img{
+	height: 300px;
+	width: 350px;
+	position: absolute;
+	top: 25%;
+	right: 20%;
+	display: none
+}
+@media(min-width: 600px) and (max-width: 1200px){
+		.player-hand-img{
+		height: 150px;
+		width: 225px;
+		position: absolute;
+		top: 35%;
+		left: 15%;
+		display: none
+		}
+	.computer-hand-img{
+		height: 150px;
+		width: 225px;
+		position: absolute;
+		top: 35%;
+		right: 15%;
+		display: none
+	}
+}
+@media(min-width: 200px) and (max-width: 599px){
+		.player-hand-img{
+		height: 100px;
+		width: 155px;
+		position: absolute;
+		top: 35%;
+		left: 10%;
+		display: none
+		}
+	.computer-hand-img{
+		height: 100px;
+		width: 155px;
+		position: absolute;
+		top: 35%;
+		right: 10%;
+		display: none
+	}
 }
